@@ -1,0 +1,13 @@
+
+type Query {
+    getCountries: [Country!]
+    getCountryByName(name: String!): Country!
+}
+
+type Country {
+    id: ID!
+    name: String!
+    capital: String!
+    population: Int!
+    region: String!
+}
