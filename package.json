@@ -12,6 +12,7 @@
   "author": "Tim Lord",
   "license": "ISC",
   "dependencies": {
+    "apollo-datasource-rest": "^3.0.1",
     "apollo-server": "^2.25.2",
     "axios": "^0.21.1",
     "graphql": "^15.5.1"
