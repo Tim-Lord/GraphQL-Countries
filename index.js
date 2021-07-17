@@ -1,9 +1,17 @@
 const { ApolloServer } = require('apollo-server');
 
 const typeDefs = require('./schema');
+const resolvers = require('./resolvers');
 
+const CountriesAPI = require('./datasources/fetch');
 
-const server = new ApolloServer({typeDefs});
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    dataSources: () => ({
+        countriesAPI: new CountriesAPI()
+    })
+});
 
 server
     .listen()
