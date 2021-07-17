@@ -1,26 +1,21 @@
 const { ApolloServer } = require('apollo-server');
 
-const fs = require('fs');
-const path = require('path');
+const typeDefs = require('./schema');
 
-const typeDefs = fs.readFileSync(
-    path.join(__dirname, 'schema.graphql'),
-    'utf-8'
-)
 
-const resolvers = {
-    Query: {
-        getResult: () => 'Just a refresher on working with GraphQL'
-    }
-}
-
-const server = new ApolloServer({
-    typeDefs,
-    resolvers
-});
+const server = new ApolloServer({typeDefs});
 
 server
     .listen()
     .then(({url}) => 
-        console.log(`Server is running on ${url}`)
+        console.log(`
+        Server running on ${url}
+        Explore at https://studio.apollographql.com/sandbox
+        `)
     )
+
+
+
+
+
+
