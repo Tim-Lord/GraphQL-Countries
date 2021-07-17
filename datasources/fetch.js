@@ -23,7 +23,7 @@ class CountriesAPI extends RESTDataSource {
             : []
     }
 
-    async getCountryByName({name}) {
+    async getCountryByName(name) {
         const response = await this.get(`name/${name}`);
 
         return this.countryReducer(response[0])
